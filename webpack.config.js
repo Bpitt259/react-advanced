@@ -1,8 +1,25 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    historyApiFallback: true,
+    hot: true
+  },
+  output: {
+    path: `${__dirname}/dist`,
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   module: {
     rules: [
       {
@@ -26,20 +43,11 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
-  output: {
-    path: `${__dirname}/dist`,
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React Advanced - Signal Game',
-      filename: 'dist/index.html'
+      title: 'React Advanced',
+      template: 'src/index.html'
     })
-  ],
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  }
+  ]
 };

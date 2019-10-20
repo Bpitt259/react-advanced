@@ -1,26 +1,24 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Nav from './components/Nav';
 import theme from './theme';
 
 import Home from './Home';
 import Game from './Game';
-import Presentation from './presentation';
+import Presentation from './Presentation';
+import Features from './Features';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0;
+    color: '#FFF';
+    padding: 0 10px;
   }
 `;
+
 const App = () => {
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    setText('Set the text state');
-  }, []);
-
   return (
     <Router>
       <ThemeProvider theme={theme}>
@@ -29,8 +27,10 @@ const App = () => {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/game" component={Game} />
-            <Route exact path="/presentation" component={Presentation} />
+            <Route path="/game" component={Game} />
+            <Route path="/presentation" component={Presentation} />
+            <Route path="/features" component={Features} />
+            <Route path="*">No stuff</Route>
           </Switch>
         </Fragment>
       </ThemeProvider>

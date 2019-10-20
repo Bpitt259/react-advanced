@@ -1,33 +1,35 @@
 import React from 'react';
-import { Deck, Heading, Slide, Text } from 'spectacle';
+import styled from 'styled-components';
 
-import presentationTheme from './presentationTheme';
+import { Deck, Heading, Slide, Text, SlideSet } from 'spectacle';
+
+import LocationTracker from '../Features/LocationTracker';
+
+const SignalHeader = styled(Heading).attrs({
+  textColor: 'black',
+  size: 4
+})``;
 
 const Presentation = () => (
-  <Deck
-    theme={presentationTheme}
-    transition={['zoom', 'slide']}
-    transitionDuration={500}
-  >
-    <Slide>
-      <Heading>NEW PRES</Heading>
-      <Text>TEST TEXT</Text>
-    </Slide>
-    <Slide>
-      <Heading>Typography</Heading>
-      <Heading>Heading 1</Heading>
-      <Heading>Heading 2</Heading>
-      <Heading>Heading 3</Heading>
-      <Heading>Heading 4</Heading>
-      <Heading>Heading 5</Heading>
-      <Text>Standard text</Text>
-    </Slide>
-    <Slide>
-      <Heading>Standard List</Heading>
-    </Slide>
-    <Slide>
-      <Heading>Example Quote</Heading>
-    </Slide>
+  <Deck transitionDuration={500} progress="bar">
+    <SlideSet style={{ background: 'red' }}>
+      <Slide>
+        <SignalHeader>
+          React’s Tackle Box: Finding the right hooks for the job.
+        </SignalHeader>
+        <Text>TEST TEXT</Text>
+      </Slide>
+      <Slide>
+        <SignalHeader>{LocationTracker()}</SignalHeader>
+        <Text>Standard text</Text>
+      </Slide>
+      <Slide>
+        <SignalHeader>Standard List</SignalHeader>
+      </Slide>
+      <Slide>
+        <SignalHeader>Example Quote</SignalHeader>
+      </Slide>
+    </SlideSet>
   </Deck>
 );
 
