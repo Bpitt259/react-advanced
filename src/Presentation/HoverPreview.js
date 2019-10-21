@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
-import UserInput from '../Features/UserInput';
+import HoverElement from '../Features/HoverElement';
 
-const scope = { styled, UserInput };
+const scope = { styled, HoverElement };
 
 const code = `
-  <UserInput />
+  <HoverElement />
 `;
 
 const EditorWrapper = styled.div`
@@ -20,7 +20,7 @@ const EditorWrapper = styled.div`
   width: 100%;
 `;
 
-export default function() {
+export default function({ component }) {
   return (
     <LiveProvider code={code} scope={scope} language="jsx">
       <EditorWrapper>

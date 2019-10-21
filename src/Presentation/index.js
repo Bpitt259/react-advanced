@@ -22,11 +22,14 @@ import UserInputCode from '../assets/UserInput.code';
 import routerCode from '../assets/router.code';
 import useDebounce from '../assets/useDebounce.code';
 import useUpdateEffect from '../assets/useUpdateEffect.code';
+import useFormBlur from '../assets/useFormBlur.code';
+import useHover from '../assets/UseHover.code';
 
 import LocationTracker from '../Features/LocationTracker';
 import UserInput from '../Features/UserInput';
 
 import LivePreview from './LivePreview';
+import HoverPreview from './HoverPreview';
 
 const images = {
   reactUse: require('../assets/images/react-use.png')
@@ -58,7 +61,10 @@ const slideNotes = {
   debounce:
     'React hook that delays invoking a function until after wait milliseconds have elapsed since the last time the debounced function was invoked.',
   useUpdate:
-    'React effect hook that ignores the first invocation (e.g. on mount). The signature is exactly the same as the useEffect hook.'
+    'React effect hook that ignores the first invocation (e.g. on mount). The signature is exactly the same as the useEffect hook.',
+  useFormBlur:
+    'Form blur notes here - talk about omission of selectors to exclude select fields',
+  useHover: 'Expand on child elements controlling parent css / interaction'
 };
 
 const Presentation = () => (
@@ -92,7 +98,6 @@ const Presentation = () => (
           <Appear>
             <SignalListItem margin={10}>
               useFormBlur - UI - Have more control over your form blur.
-              (deprecated onFormBlur in react).
             </SignalListItem>
           </Appear>
         </List>
@@ -145,6 +150,57 @@ const Presentation = () => (
             </div>
           </Appear>
         </List>
+      </Slide>
+
+      <Slide
+        progressColor="#eb5463"
+        align="flex-start"
+        notes={slideNotes.useFormBlur}
+      >
+        <SignalText>Form Actions</SignalText>
+        <List textColor="#eb5463" textFont="Helvetica">
+          <SignalListItem>useFormBlur</SignalListItem>
+          <Appear>
+            <div>
+              <CodePane
+                source={useFormBlur}
+                lang="js"
+                textSize={24}
+                theme="external"
+              />
+            </div>
+          </Appear>
+        </List>
+      </Slide>
+
+      <Slide
+        progressColor="#eb5463"
+        align="flex-start"
+        notes={slideNotes.useFormBlur}
+      >
+        <SignalText>UI Hooks</SignalText>
+        <List textColor="#eb5463" textFont="Helvetica">
+          <SignalListItem>useHover</SignalListItem>
+          <Appear>
+            <div>
+              <CodePane
+                source={useHover}
+                lang="js"
+                textSize={20}
+                theme="external"
+              />
+            </div>
+          </Appear>
+        </List>
+      </Slide>
+
+      {/* Live code */}
+      <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
+        <SignalText>UI Hooks</SignalText>
+        <List textColor="#eb5463" textFont="Helvetica">
+          <SignalListItem>useHover</SignalListItem>
+        </List>
+        <HoverPreview />
       </Slide>
 
       {/* CODE SLIDE - REACT ROUTER */}

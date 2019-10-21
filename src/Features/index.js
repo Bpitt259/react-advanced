@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 
+import HoverElement from './HoverElement';
+
 const FeatureWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -41,11 +43,15 @@ const ListItem = styled(Link)`
 
 const RouterHooks = () => {
   const { feature } = useParams();
-  return (
-    <div>
-      <h3>{feature}</h3>
-    </div>
-  );
+  let component;
+  switch (feature) {
+    case 'use-hover':
+      component = <HoverElement />;
+      break;
+    default:
+      return null;
+  }
+  return component;
 };
 
 const Features = () => {
@@ -63,7 +69,7 @@ const Features = () => {
           <ListItem to={`${url}/form-hooks`}>form hooks</ListItem>
         </li>
         <li>
-          <ListItem to={`${url}/ui-hooks`}>UI hooks</ListItem>
+          <ListItem to={`${url}/use-hover`}>useHover</ListItem>
         </li>
       </List>
 

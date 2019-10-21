@@ -12,6 +12,8 @@ const InputWrapper = styled.div`
 
 const StyledInput = styled.input`
   color: black;
+  font-size: ${props => props.theme.font.size.large};
+  padding-left: 10px;
 
   height: 50px;
   width: 100%;
@@ -19,7 +21,6 @@ const StyledInput = styled.input`
 
 const Text = styled.p`
   color: ${props => props.theme.color.red};
-
   font-size: ${props => props.theme.font.size.large};
 `;
 
@@ -49,11 +50,13 @@ function UserInput() {
         value={inputValue}
         onChange={e => handleOnChange(e)}
       />
-      <Text>{inputValue}</Text>
       <Text>{status}</Text>
+      <Text>{inputValue}</Text>
       <Text>
         Saved Value:
-        {debouncedValue}
+        <span style={{ color: 'white', marginLeft: '20px' }}>
+          {debouncedValue}
+        </span>
       </Text>
     </InputWrapper>
   );
