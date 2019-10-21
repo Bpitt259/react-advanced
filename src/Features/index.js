@@ -29,7 +29,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled(Link)`
-  color: ${props => props.theme.color.signalGrey};
+  color: ${props => props.theme.color['grey-600']};
   font-size: ${props => props.theme.font.size.small};
   text-decoration: none;
 

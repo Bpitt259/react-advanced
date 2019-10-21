@@ -8,7 +8,7 @@ const NavWrapper = styled.nav`
   flex-direction: row;
   width: 100%;
 
-  border-bottom: 1px solid ${props => props.theme.color.signalGrey};
+  border-bottom: 1px solid ${props => props.theme.color['grey-600']};
   padding-bottom: 10px;
 
   margin: 20px;
@@ -21,7 +21,7 @@ const NavWrapper = styled.nav`
 `;
 
 const NavItem = styled(NavLink)`
-  color: ${props => props.theme.color.signalGrey};
+  color: ${props => props.theme.color['grey-600']};
   font-size: ${props => props.theme.font.size.small};
   text-decoration: none;
 
@@ -33,7 +33,7 @@ const NavItem = styled(NavLink)`
 `;
 
 const StyledDiv = styled.div`
-  color: ${props => props.theme.color.signalGrey};
+  color: ${props => props.theme.color['grey-600']};
 
   font-size: ${props => props.theme.font.size.small};
   font-style: italic;

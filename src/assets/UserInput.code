@@ -1,0 +1,35 @@
+function UserInput() {
+  const [status, setStatus] = React.useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [debouncedValue, setDebouncedValue] = useState('');
+
+  useDebounce(
+    () => {
+      setStatus('Settings have been saved!');
+      setDebouncedValue(inputValue);
+    },
+    2000,
+    [inputValue]
+  );
+
+  function handleOnChange(e) {
+    setStatus('Saving your Changes...');
+    setInputValue(e.target.value);
+  }
+
+  return (
+    <InputWrapper>
+      <StyledInput
+        type="text"
+        value={inputValue}
+        onChange={e => handleOnChange(e)}
+      />
+      <Text>{inputValue}</Text>
+      <Text>{status}</Text>
+      <Text>
+        Saved Value:
+        {debouncedValue}
+      </Text>
+    </InputWrapper>
+  );
+}

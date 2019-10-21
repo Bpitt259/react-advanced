@@ -8,6 +8,7 @@
   "extends": ["airbnb", "prettier"],
   "plugins": ["react", "react-hooks"],
   "rules": {
+    "import/no-webpack-loader-syntax": 0,
     "no-plusplus": 0,
     "func-names": ["error", "never"],
     "react/jsx-uses-react": 2,
