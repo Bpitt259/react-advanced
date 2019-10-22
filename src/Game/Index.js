@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
-import { Button, Box } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
+
+import Image from './Image';
 
 const GameWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
+  height: 100%;
+  width: 100%;
 `;
 
 const SignUpWrapper = styled.div`
+  align-self: center;
+
+  margin: 50px 0px;
+
+  width: 300px;
+`;
+
+const StyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
-
-  align-items: center;
 `;
 
 const SignalButton = withStyles(theme => ({
@@ -33,9 +44,8 @@ const Game = () => {
 
   return (
     <GameWrapper>
-      Game
       <SignUpWrapper>
-        <Box>
+        <StyledBox boxShadow={3} component="div">
           <SignalButton
             variant="contained"
             color="primary"
@@ -47,8 +57,9 @@ const Game = () => {
           >
             Sign Up
           </SignalButton>
-        </Box>
+        </StyledBox>
       </SignUpWrapper>
+      <Image />
     </GameWrapper>
   );
 };

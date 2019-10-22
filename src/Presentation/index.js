@@ -18,15 +18,11 @@ import {
 import CodeSlide from 'spectacle-code-slide';
 import preloader from 'spectacle/lib/utils/preloader';
 
-import UserInputCode from '../assets/UserInput.code';
 import routerCode from '../assets/router.code';
 import useDebounce from '../assets/useDebounce.code';
 import useUpdateEffect from '../assets/useUpdateEffect.code';
 import useFormBlur from '../assets/useFormBlur.code';
 import useHover from '../assets/UseHover.code';
-
-import LocationTracker from '../Features/LocationTracker';
-import UserInput from '../Features/UserInput';
 
 import LivePreview from './LivePreview';
 import HoverPreview from './HoverPreview';
