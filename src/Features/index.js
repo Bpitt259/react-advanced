@@ -9,6 +9,8 @@ import {
 import styled from 'styled-components';
 
 import HoverElement from './HoverElement';
+import LocationTracker from './LocationTracker';
+import UserInput from './UserInput';
 
 const FeatureWrapper = styled.div`
   display: flex;
@@ -45,9 +47,16 @@ const RouterHooks = () => {
   const { feature } = useParams();
   let component;
   switch (feature) {
-    case 'use-hover':
+    case 'router-hooks':
+      component = <LocationTracker />;
+      break;
+    case 'form-hooks':
+      component = <UserInput />;
+      break;
+    case 'ui-hooks':
       component = <HoverElement />;
       break;
+
     default:
       return null;
   }
@@ -69,7 +78,7 @@ const Features = () => {
           <ListItem to={`${url}/form-hooks`}>form hooks</ListItem>
         </li>
         <li>
-          <ListItem to={`${url}/use-hover`}>useHover</ListItem>
+          <ListItem to={`${url}/ui-hooks`}>UI Hooks</ListItem>
         </li>
       </List>
 

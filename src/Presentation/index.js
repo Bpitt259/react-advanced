@@ -52,12 +52,19 @@ const SignalText = styled(Text).attrs(props => ({
 }))``;
 
 const SignalListItem = styled(ListItem).attrs(props => ({
-  margin: 10
+  textSize: 60,
+  margin: 50
 }))``;
 
 const slideNotes = {
   opening:
     'My name is Bryan and I’m a Software Engineer at a company called Signal, we’re a company that focuses on giving PR and Comms professionals real time information with the help of AI technology.',
+  challenge:
+    'Our clients need access to billions of data points, and they need to be able to harness that data in a meaningful way. Whether through custom reports, real-time and scheduled alerts or analytics dashboards, how we deliver that data to our clients matters.',
+  needs:
+    'A large system that is also highly interactive and customizable does not come cheap in respect to performance, we aim to solve that using evolving and consistant stretegies such as fitness functions, and low overhead components, which is where hooks step in.',
+  how:
+    'We start with a full featured Hooks library that is still being contributed toward regularly by talented developers around the world.',
   debounce:
     'React hook that delays invoking a function until after wait milliseconds have elapsed since the last time the debounced function was invoked.',
   useUpdate:
@@ -78,37 +85,49 @@ const Presentation = () => (
         <SignalText>Bryan Pitt / Signal AI - London</SignalText>
       </Slide>
 
-      {/* OUR USE CASES */}
-      <Slide progressColor="#eb5463" align="flex-start">
-        <SignalHeader>Use cases</SignalHeader>
-        <List textColor="#eb5463" textFont="Helvetica">
+      {/* CHALLENGE */}
+      <Slide
+        progressColor="#eb5463"
+        align="flex-start"
+        notes={slideNotes.challenge}
+      >
+        <SignalHeader caps>What we face</SignalHeader>
+        <Appear>
+          <SignalHeader caps textSize={300}>
+            Big Forms.
+          </SignalHeader>
+        </Appear>
+      </Slide>
+
+      {/* WHAT WE NEED */}
+      <Slide
+        progressColor="#eb5463"
+        align="flex-start"
+        notes={slideNotes.needs}
+      >
+        <SignalHeader caps>What we need</SignalHeader>
+        <List textColor="#eb5463" textFont="Helvetica" bulletStyle="0394">
           <Appear>
-            <SignalListItem margin={10}>
-              useDebounce - performant form controls
-            </SignalListItem>
+            <SignalListItem>Performant form controls.</SignalListItem>
           </Appear>
           <Appear>
-            <SignalListItem margin={10}>
-              useUpdateEffect - Initial load (by pass save)
-            </SignalListItem>
+            <SignalListItem>Efficient state management.</SignalListItem>
           </Appear>
           <Appear>
-            <SignalListItem margin={10}>useHover - UI</SignalListItem>
-          </Appear>
-          <Appear>
-            <SignalListItem margin={10}>
-              useFormBlur - UI - Have more control over your form blur.
-            </SignalListItem>
+            <SignalListItem>Control over our UI.</SignalListItem>
           </Appear>
         </List>
       </Slide>
 
-      {/* LIBRARY MENTIONS */}
-      <Slide progressColor="#eb5463" align="flex-start">
-        <SignalHeader caps>Use These Libraries</SignalHeader>
-        <Image src={images.reactUse} width={900} />
-        <Cite>Vadim Dalecky [streamich]</Cite>
+      {/* HOW WE DO IT */}
+      <Slide progressColor="#eb5463" align="flex-start" notes={slideNotes.how}>
+        <SignalHeader caps>How we do it</SignalHeader>
+        <Appear>
+          <Image src={images.reactUse} width={900} />
+        </Appear>
       </Slide>
+
+      {/* FORM CONTROLS - DEBOUNCE */}
       <Slide
         progressColor="#eb5463"
         align="flex-start"
@@ -117,20 +136,23 @@ const Presentation = () => (
         <SignalText>React-Use</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem margin={10}>useDebounce</SignalListItem>
-          <Appear>
-            <div>
-              <CodePane
-                source={useDebounce}
-                lang="js"
-                textSize={24}
-                theme="external"
-              />
-            </div>
-          </Appear>
+          <div>
+            <CodePane
+              source={useDebounce}
+              lang="js"
+              textSize={24}
+              theme="external"
+            />
+          </div>
         </List>
+        <Cite>Vadim Dalecky [streamich]</Cite>
+      </Slide>
+      <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
+        <SignalText>useDebounce for efficient API calls</SignalText>
+        <LivePreview />
       </Slide>
 
-      {/* USE UPDATE  */}
+      {/* FORM CONTROLS - USE UPDATE  */}
       <Slide
         progressColor="#eb5463"
         align="flex-start"
@@ -139,25 +161,25 @@ const Presentation = () => (
         <SignalText>React-Use</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem>useUpdateEffect</SignalListItem>
-          <Appear>
-            <div>
-              <CodePane
-                source={useUpdateEffect}
-                lang="js"
-                textSize={24}
-                theme="external"
-              />
-            </div>
-          </Appear>
+          <div>
+            <CodePane
+              source={useUpdateEffect}
+              lang="js"
+              textSize={24}
+              theme="external"
+            />
+          </div>
         </List>
+        <Cite>Vadim Dalecky [streamich]</Cite>
       </Slide>
 
+      {/* UI CONTROL -  FORM BLUR */}
       <Slide
         progressColor="#eb5463"
         align="flex-start"
         notes={slideNotes.useFormBlur}
       >
-        <SignalText>Form Actions</SignalText>
+        <SignalText>UI Hooks</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem>useFormBlur</SignalListItem>
           <Appear>
@@ -173,6 +195,7 @@ const Presentation = () => (
         </List>
       </Slide>
 
+      {/* UI-HOOKS HOVER */}
       <Slide
         progressColor="#eb5463"
         align="flex-start"
@@ -193,8 +216,6 @@ const Presentation = () => (
           </Appear>
         </List>
       </Slide>
-
-      {/* Live code */}
       <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
         <SignalText>UI Hooks</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
@@ -218,12 +239,6 @@ const Presentation = () => (
           { loc: [8, 10] }
         ]}
       />
-
-      {/* Live code */}
-      <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
-        <SignalText>useDebounce for efficient API calls</SignalText>
-        <LivePreview />
-      </Slide>
 
       {/* End */}
       <Slide progressColor="#eb5463" textSize={10}>
