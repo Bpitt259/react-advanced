@@ -13,6 +13,15 @@ const images = [
   { id: 9, src: `${require('../assets/images/game/9.jpg')}` }
 ];
 
+const ImageGameWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+`;
+
 const ImageGrid = styled.div`
   align-self: center;
   display: grid;
@@ -20,8 +29,13 @@ const ImageGrid = styled.div`
   grid-template-rows: repeat(3, 1fr);
   grid-auto-flow: column;
 
-  height: 300px;
-  width: 350px;
+  margin: auto 0;
+`;
+
+const ImageFlex = styled.div`
+  display: flex;
+  flex-diretion: row;
+  flex-wrap: row;
 `;
 
 const ImageEl = styled.img`
@@ -41,5 +55,9 @@ export default function() {
   const renderImage = () =>
     images.map(i => <ImageEl key={i.id} src={i.src} alt="piece" />);
 
-  return <ImageGrid>{renderImage()}</ImageGrid>;
+  return (
+    <ImageGameWrapper>
+      <ImageGrid>{renderImage()}</ImageGrid>
+    </ImageGameWrapper>
+  );
 }

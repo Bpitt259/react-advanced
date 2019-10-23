@@ -29,9 +29,7 @@ const HoverElement = () => {
   return (
     <OuterDiv isHovered={isHovered}>
       Outer things
-      <InnerDiv ref={hoverRef} onClick={() => alert('clicked only this part')}>
-        inner
-      </InnerDiv>
+      <InnerDiv ref={hoverRef}>inner</InnerDiv>
       Other things
     </OuterDiv>
   );

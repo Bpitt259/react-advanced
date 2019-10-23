@@ -8,7 +8,7 @@ const NavWrapper = styled.nav`
   flex-direction: row;
   width: 100%;
 
-  border-bottom: 1px solid ${props => props.theme.color['grey-600']};
+  border-bottom: 1px solid ${props => props.theme.color.red};
   padding-bottom: 10px;
 
   margin: 20px;
@@ -21,34 +21,35 @@ const NavWrapper = styled.nav`
 `;
 
 const NavItem = styled(NavLink)`
-  color: ${props => props.theme.color['grey-600']};
-  font-size: ${props => props.theme.font.size.small};
+  color: ${props => props.theme.color.red};
+  font-size: ${props => props.theme.font.size.medium};
   text-decoration: none;
 
   cursor: pointer;
 
   &:hover {
-    color: black;
+    color: red;
   }
 `;
 
 const StyledDiv = styled.div`
-  color: ${props => props.theme.color['grey-600']};
+  color: ${props => props.theme.color.red};
 
-  font-size: ${props => props.theme.font.size.small};
+  font-size: ${props => props.theme.font.size.medium};
   font-style: italic;
 `;
 
 const Nav = () => {
   const location = useLocation();
-  return location.pathname === '/presentation' ? null : (
-    <NavWrapper>
-      <NavItem to="/">Home</NavItem>
-      <NavItem to="/game">The Game</NavItem>
-      <NavItem to="/presentation">Presentation</NavItem>
-      <NavItem to="/features">Features</NavItem>
-      <StyledDiv>{`current location: ${location.pathname}`}</StyledDiv>
-    </NavWrapper>
+  return location.pathname ===
+    ('/presentation' || '/image-game' || '/game') ? null : (
+      <NavWrapper>
+        <NavItem to="/">Home</NavItem>
+        <NavItem to="/game">The Game</NavItem>
+        <NavItem to="/presentation">Presentation</NavItem>
+        <NavItem to="/features">Features</NavItem>
+        <StyledDiv>{`current location: ${location.pathname}`}</StyledDiv>
+      </NavWrapper>
   );
 };
 

@@ -10,11 +10,21 @@ import Home from './Home';
 import Game from './Game';
 import Presentation from './Presentation';
 import Features from './Features';
+import ImageGame from './Game/ImageGame';
 
 const GlobalStyle = createGlobalStyle`
+  p {
+    font-family: 'helvetica';
+  }
+  h1 {
+    font-family: 'Impact';
+  }
   body {
+    background-color: ${props => props.theme.color['grey-700']};
+
+    padding: 0;
+    margin: 0;
     color: '#FFF';
-    padding: 0 10px;
   }
 `;
 
@@ -30,6 +40,7 @@ const App = () => {
             <Route path="/game" component={Game} />
             <Route path="/presentation" component={Presentation} />
             <Route path="/features" component={Features} />
+            <Route path="/image-game" component={ImageGame} />
             <Route path="*">No stuff</Route>
           </Switch>
         </Fragment>
