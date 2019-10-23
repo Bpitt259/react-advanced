@@ -33,9 +33,23 @@ const images = {
 preloader(images);
 Prism.highlightAll();
 
+const SignalHeaderOpening = styled(Heading).attrs(props => ({
+  textFont: 'Impact',
+  textColor: props.theme.color.red,
+  size: 3,
+  margin: 50
+}))``;
+
 const SignalHeader = styled(Heading).attrs(props => ({
   textFont: 'Impact',
   textColor: props.theme.color.red,
+  size: 1,
+  margin: 50
+}))``;
+
+const SignalHeaderWhite = styled(Heading).attrs(props => ({
+  textFont: 'Impact',
+  textColor: 'white',
   size: 3,
   margin: 50
 }))``;
@@ -48,26 +62,35 @@ const SignalText = styled(Text).attrs(props => ({
 }))``;
 
 const SignalListItem = styled(ListItem).attrs(props => ({
+  textFont: 'Helvetica',
+  textSize: 60,
+  margin: 50
+}))``;
+
+const SignalListWhite = styled(ListItem).attrs(props => ({
+  textFont: 'Helvetica',
+  textColor: 'white',
   textSize: 60,
   margin: 50
 }))``;
 
 const slideNotes = {
   opening:
-    'My name is Bryan and I’m a Software Engineer at a company called Signal, we’re a company that focuses on giving PR and Comms professionals real time information with the help of AI technology.',
+    'My name is Bryan and I’m a Software Engineer at a company called Signal, we’re a company that focuses on giving PR and Coms professionals relavent, real time information with the help of AI technology.',
   challenge:
     'Our clients need access to billions of data points, and they need to be able to harness that data in a meaningful way. Whether through custom reports, real-time and scheduled alerts or analytics dashboards, how we deliver that data to our clients matters.',
   needs:
-    'A large system that is also highly interactive and customizable does not come cheap in respect to performance, we aim to solve that using evolving and consistant stretegies such as fitness functions, and low overhead components, which is where hooks step in.',
+    'A large system that is also highly interactive and customizable does not come cheap in respect to performance, we aim to solve that using evolving and consistant stretegies, and low overhead components, which is where hooks step in.',
   how:
-    'We start with a full featured Hooks library that is still being contributed toward regularly by talented developers around the world.',
+    'We start with a full featured Hooks library that is still being contributed toward regularly by talented developers around the world, use-react, and we end with a few of our own.',
   debounce:
-    'React hook that delays invoking a function until after wait milliseconds have elapsed since the last time the debounced function was invoked.',
+    'A hook that delays invoking a function until after a determined wait time enables us to offer saving on the fly in our forms, giving users a streamlined and reponsive experience, while keeping load off of our APIs.',
   useUpdate:
-    'React effect hook that ignores the first invocation (e.g. on mount). The signature is exactly the same as the useEffect hook.',
+    'Our next hook is one that ignores the first invocation (e.g. on mount), to keep the data displayed in our customers field up to date, but not constatly pinging our servers. This provided a convienent way to circumnavigate conditional invokation in our initial renders of forms.',
   useFormBlur:
-    'Form blur notes here - talk about omission of selectors to exclude select fields',
-  useHover: 'Expand on child elements controlling parent css / interaction'
+    'The next few are some that we wrote before we knew about other fancy implementations of Hooks, and still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown, for use in our conditional view/edit layouts. Youll see in this example that we conditionally set an edit-mode view depending on whether the target that is interacted with is in or outside of our input group. The use effect is a convienet way to add and remove event listeners via the mount and dismount syntax',
+  useHover:
+    'The last hook id like to share was also made by us, but certainly isnt the only or last implementation, the usehover. This hook keeps track of your mouse position within a node, and tests whether the node it enters includes that ref. We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children.'
 };
 
 const Presentation = () => (
@@ -75,9 +98,9 @@ const Presentation = () => (
     <SlideSet style={{ background: '#000' }}>
       {/* INTRO */}
       <Slide progressColor="#eb5463" notes={slideNotes.opening}>
-        <SignalHeader caps lineHeight={1.1}>
+        <SignalHeaderOpening caps lineHeight={1.1}>
           React’s Tackle Box : &nbsp; Using the right hooks for the job.
-        </SignalHeader>
+        </SignalHeaderOpening>
         <SignalText>Bryan Pitt / Signal AI - London</SignalText>
       </Slide>
 
@@ -87,7 +110,23 @@ const Presentation = () => (
         align="flex-start"
         notes={slideNotes.challenge}
       >
-        <SignalHeader caps>What we face</SignalHeader>
+        <SignalHeader caps>Our Challenge</SignalHeader>
+        <Appear>
+          <SignalHeaderWhite>2,409 Organisations</SignalHeaderWhite>
+        </Appear>
+        <Appear>
+          <SignalHeaderWhite>6,807 Users</SignalHeaderWhite>
+        </Appear>
+        <Appear>
+          <SignalHeaderWhite>54,405 Reports </SignalHeaderWhite>
+        </Appear>
+      </Slide>
+
+      <Slide
+        progressColor="#eb5463"
+        align="flex-start"
+        notes={slideNotes.challenge}
+      >
         <Appear>
           <SignalHeader caps textSize={300}>
             Big Forms.
@@ -104,13 +143,13 @@ const Presentation = () => (
         <SignalHeader caps>What we need</SignalHeader>
         <List textColor="#eb5463" textFont="Helvetica" bulletStyle="0394">
           <Appear>
-            <SignalListItem>Performant form controls.</SignalListItem>
+            <SignalListWhite>Performant controls.</SignalListWhite>
           </Appear>
           <Appear>
-            <SignalListItem>Efficient state management.</SignalListItem>
+            <SignalListWhite>Efficient state management.</SignalListWhite>
           </Appear>
           <Appear>
-            <SignalListItem>Control over our UI.</SignalListItem>
+            <SignalListWhite>Control over our UI.</SignalListWhite>
           </Appear>
         </List>
       </Slide>
@@ -132,17 +171,17 @@ const Presentation = () => (
         <SignalText>React-Use</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem margin={10}>useDebounce</SignalListItem>
-          <div>
-            <CodePane
-              source={useDebounce}
-              lang="js"
-              textSize={24}
-              theme="external"
-            />
-          </div>
+
+          <CodePane
+            source={useDebounce}
+            lang="js"
+            textSize={24}
+            theme="external"
+          />
         </List>
         <Cite>Vadim Dalecky [streamich]</Cite>
       </Slide>
+
       <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
         <SignalText>useDebounce for efficient API calls</SignalText>
         <LivePreview />
@@ -157,14 +196,12 @@ const Presentation = () => (
         <SignalText>React-Use</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem>useUpdateEffect</SignalListItem>
-          <div>
-            <CodePane
-              source={useUpdateEffect}
-              lang="js"
-              textSize={24}
-              theme="external"
-            />
-          </div>
+          <CodePane
+            source={useUpdateEffect}
+            lang="js"
+            textSize={24}
+            theme="external"
+          />
         </List>
         <Cite>Vadim Dalecky [streamich]</Cite>
       </Slide>
@@ -178,16 +215,12 @@ const Presentation = () => (
         <SignalText>UI Hooks</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem>useFormBlur</SignalListItem>
-          <Appear>
-            <div>
-              <CodePane
-                source={useFormBlur}
-                lang="js"
-                textSize={24}
-                theme="external"
-              />
-            </div>
-          </Appear>
+          <CodePane
+            source={useFormBlur}
+            lang="js"
+            textSize={24}
+            theme="external"
+          />
         </List>
       </Slide>
 
@@ -200,18 +233,36 @@ const Presentation = () => (
         <SignalText>UI Hooks</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem>useHover</SignalListItem>
-          <Appear>
-            <div>
-              <CodePane
-                source={useHover}
-                lang="js"
-                textSize={19}
-                theme="external"
-              />
-            </div>
-          </Appear>
+          <CodePane
+            source={useHover}
+            lang="js"
+            textSize={19}
+            theme="external"
+          />
         </List>
       </Slide>
+
+      {/* CODE SLIDE - REACT ROUTER */}
+      <CodeSlide
+        progressColor="#eb5463"
+        transition={[]}
+        lang="js"
+        code={useHover}
+        ranges={[
+          { loc: [0, 100], title: 'useHover' },
+          { loc: [1, 3], note: 'Sets and initial value and creates a ref' },
+          { loc: [9, 13], note: 'If in a node, add a listener to that node' },
+          {
+            loc: [13, 17],
+            note: 'Remove the event listeners via the unmount return'
+          },
+          {
+            loc: [20, 21],
+            note: 'return the state of our ref and value'
+          }
+        ]}
+      />
+
       <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
         <SignalText>UI Hooks</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
@@ -219,22 +270,6 @@ const Presentation = () => (
         </List>
         <HoverPreview />
       </Slide>
-
-      {/* CODE SLIDE - REACT ROUTER */}
-      {/* <CodeSlide
-        progressColor="#eb5463"
-        transition={[]}
-        lang="js"
-        code={routerCode}
-        ranges={[
-          { loc: [0, 200], title: 'Code Slide Example' },
-          { loc: [0, 1], title: 'The Beginning' },
-          { loc: [1, 2] },
-          { loc: [1, 2], note: 'Heres a note!' },
-          { loc: [2, 3] },
-          { loc: [8, 10] }
-        ]}
-      /> */}
 
       {/* End */}
       <Slide progressColor="#eb5463" textSize={10}>

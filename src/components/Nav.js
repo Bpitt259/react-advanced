@@ -41,14 +41,16 @@ const StyledDiv = styled.div`
 
 const Nav = () => {
   const location = useLocation();
-  return location.pathname === '/presentation' ? null : (
-    <NavWrapper>
-      <NavItem to="/">Home</NavItem>
-      <NavItem to="/game">The Game</NavItem>
-      <NavItem to="/presentation">Presentation</NavItem>
-      <NavItem to="/features">Features</NavItem>
-      <StyledDiv>{`current location: ${location.pathname}`}</StyledDiv>
-    </NavWrapper>
+  return location.pathname === '/presentation' ||
+    location.pathname === '/image-game' ||
+    location.pathname === '/game' ? null : (
+      <NavWrapper>
+        <NavItem to="/">Home</NavItem>
+        <NavItem to="/game">The Game</NavItem>
+        <NavItem to="/presentation">Presentation</NavItem>
+        <NavItem to="/features">Features</NavItem>
+        <StyledDiv>{`current location: ${location.pathname}`}</StyledDiv>
+      </NavWrapper>
   );
 };
 
