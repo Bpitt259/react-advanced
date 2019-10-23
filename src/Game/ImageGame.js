@@ -17,9 +17,6 @@ const ImageGameWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  width: 100%;
-  height: 100vh;
 `;
 
 const ImageGrid = styled.div`
@@ -28,8 +25,6 @@ const ImageGrid = styled.div`
 
   grid-template-rows: repeat(3, 1fr);
   grid-auto-flow: column;
-
-  margin: auto 0;
 `;
 
 const ImageFlex = styled.div`

@@ -205,7 +205,7 @@ const Presentation = () => (
               <CodePane
                 source={useHover}
                 lang="js"
-                textSize={20}
+                textSize={19}
                 theme="external"
               />
             </div>
@@ -221,7 +221,7 @@ const Presentation = () => (
       </Slide>
 
       {/* CODE SLIDE - REACT ROUTER */}
-      <CodeSlide
+      {/* <CodeSlide
         progressColor="#eb5463"
         transition={[]}
         lang="js"
@@ -234,7 +234,7 @@ const Presentation = () => (
           { loc: [2, 3] },
           { loc: [8, 10] }
         ]}
-      />
+      /> */}
 
       {/* End */}
       <Slide progressColor="#eb5463" textSize={10}>

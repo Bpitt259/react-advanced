@@ -26,6 +26,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     color: '#FFF';
   }
+  * {
+  box-sizing: border-box;
+  }
 `;
 
 const App = () => {
