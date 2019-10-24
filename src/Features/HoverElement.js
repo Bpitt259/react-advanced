@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import useHover from './useHover';
+import Modal from '../components/Modal';
 
 const OuterDiv = styled.div`
   border: 1px solid ${props => props.theme.color.red};
@@ -23,15 +24,33 @@ const InnerDiv = styled.div`
   width: 200px;
 `;
 
+const StyledImage = styled.img`
+  align-self: center;
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+`;
+
+const gif = require('../assets/images/spoingebob-magic.gif');
+
 const HoverElement = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [hoverRef, isHovered] = useHover();
 
   return (
-    <OuterDiv isHovered={isHovered}>
-      Outer things
-      <InnerDiv ref={hoverRef}>inner</InnerDiv>
-      Other things
-    </OuterDiv>
+    <div>
+      <OuterDiv isHovered={isHovered}>
+        parent
+        <InnerDiv ref={hoverRef} onClick={() => setIsOpen(true)}>
+          child
+        </InnerDiv>
+        parent
+      </OuterDiv>
+      <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
+        <StyledImage src={gif} />
+      </Modal>
+    </div>
   );
 };
 

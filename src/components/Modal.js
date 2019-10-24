@@ -16,7 +16,7 @@ const StyledModal = styled(ReactModal)`
 
   color: ${props => props.theme.color['night--dark']};
 
-  background: ${props => props.theme.color.white};
+  background: 'black';
   border-radius: 2px;
 
   width: calc(100% - ${MODAL_MARGIN} * 2);

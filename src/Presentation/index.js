@@ -28,7 +28,11 @@ import LivePreview from './LivePreview';
 import HoverPreview from './HoverPreview';
 
 const images = {
-  reactUse: require('../assets/images/react-use.png')
+  reactUse: require('../assets/images/react-use.png'),
+  useHover1: require('../assets/images/usehover-why.png'),
+  useHover2: require('../assets/images/usehover-why2.png'),
+  jquery: require('../assets/images/jquery.png'),
+  jquery2: require('../assets/images/jquery2.png')
 };
 preloader(images);
 Prism.highlightAll();
@@ -76,21 +80,21 @@ const SignalListWhite = styled(ListItem).attrs(props => ({
 
 const slideNotes = {
   opening:
-    'My name is Bryan and I’m a Software Engineer at a company called Signal, we’re a company that focuses on giving PR and Coms professionals relavent, real time information with the help of AI technology.',
+    'Im Bryan, a Software Engineer at Signal. We focus on giving PR and Comms professionals relavent, real time information with the help of AI technology, but we also do a lot of cool stuff with our data.',
   challenge:
     'Our clients need access to billions of data points, and they need to be able to harness that data in a meaningful way. Whether through custom reports, real-time and scheduled alerts or analytics dashboards, how we deliver that data to our clients matters.',
   needs:
-    'A large system that is also highly interactive and customizable does not come cheap in respect to performance, we aim to solve that using evolving and consistant stretegies, and low overhead components, which is where hooks step in.',
+    'A large system that is also highly interactive and customizable does not come cheap in respect to performance, we aim to solve that using evolving yet consistant stretegies. More future proof and lower overhead components is where its at, which is where hooks step in.',
   how:
-    'We start with a full featured Hooks library that is still being contributed toward regularly by talented developers around the world, use-react, and we end with a few of our own.',
+    'We start with a full featured Hooks library that is still being contributed toward regularly by talented developers around the world, use-react, and we will end with a few of our own.',
   debounce:
     'A hook that delays invoking a function until after a determined wait time enables us to offer saving on the fly in our forms, giving users a streamlined and reponsive experience, while keeping load off of our APIs.',
   useUpdate:
-    'Our next hook is one that ignores the first invocation (e.g. on mount), to keep the data displayed in our customers field up to date, but not constatly pinging our servers. This provided a convienent way to circumnavigate conditional invokation in our initial renders of forms.',
+    'Our next hook is one that ignores the first invocation of data (e.g. on compDidMount), to keep the information displayed in our customers field up to date, but not constatly pinging our servers. This provided a convienent way to bypass conditional test in our initial renders of forms.',
   useFormBlur:
-    'The next few are some that we wrote before we knew about other fancy implementations of Hooks, and still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown, for use in our conditional view/edit layouts. Youll see in this example that we conditionally set an edit-mode view depending on whether the target that is interacted with is in or outside of our input group. The use effect is a convienet way to add and remove event listeners via the mount and dismount syntax',
+    'The next few are some that we wrote before other fancy implementations of Hooks were released, yet still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown. We use this extensively throughout our view/edit layouts in our UI. As youll see in these next two examples, useEffect is a convienet way to add and remove event listeners via the mount and dismount syntax',
   useHover:
-    'The last hook id like to share was also made by us, but certainly isnt the only or last implementation, the usehover. This hook keeps track of your mouse position within a node, and tests whether the node it enters includes that ref. We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children.'
+    'The last hook id like to share was also homegrown, but certainly isnt the only or last implementation, the usehover. This hook keeps track of your mouse position within a node, and tests whether the node it enters includes that ref. We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children. This is typically hard to achieve in CSS due to not having access to a parent selector. That is how you take control of your UI and streamline your forms.'
 };
 
 const Presentation = () => (
@@ -242,8 +246,31 @@ const Presentation = () => (
         </List>
       </Slide>
 
+      <Slide
+        progressColor="#eb5463"
+        align="flex-start"
+        notes={slideNotes.useFormBlur}
+      >
+        <SignalHeader>Why</SignalHeader>
+        <Appear>
+          <Image src={images.useHover1} height={100} width={900} />
+        </Appear>
+        <Appear>
+          <Image src={images.useHover2} height={200} width={900} />
+        </Appear>
+        <Appear>
+          <Image src={images.jquery} height={100} width={900} />
+        </Appear>
+        <Appear>
+          <Image src={images.jquery2} height={100} width={500} />
+        </Appear>
+        <Appear>
+          <Cite>Stackoverflow, CSS-tricks</Cite>
+        </Appear>
+      </Slide>
+
       {/* CODE SLIDE - REACT ROUTER */}
-      <CodeSlide
+      {/* <CodeSlide
         progressColor="#eb5463"
         transition={[]}
         lang="js"
@@ -261,7 +288,7 @@ const Presentation = () => (
             note: 'return the state of our ref and value'
           }
         ]}
-      />
+      /> */}
 
       <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
         <SignalText>UI Hooks</SignalText>
