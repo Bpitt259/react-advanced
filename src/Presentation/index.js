@@ -68,14 +68,14 @@ const SignalText = styled(Text).attrs(props => ({
 const SignalListItem = styled(ListItem).attrs(props => ({
   textFont: 'Helvetica',
   textSize: 60,
-  margin: 50
+  margin: 25
 }))``;
 
 const SignalListWhite = styled(ListItem).attrs(props => ({
   textFont: 'Helvetica',
   textColor: 'white',
   textSize: 60,
-  margin: 50
+  margin: 25
 }))``;
 
 const slideNotes = {
@@ -92,7 +92,7 @@ const slideNotes = {
   useUpdate:
     'Our next hook is one that ignores the first invocation of data (e.g. on compDidMount), to keep the information displayed in our customers field up to date, but not constatly pinging our servers. This provided a convienent way to bypass conditional test in our initial renders of forms.',
   useFormBlur:
-    'The next few are some that we wrote before other fancy implementations of Hooks were released, yet still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown. We use this extensively throughout our view/edit layouts in our UI. As youll see in these next two examples, useEffect is a convienet way to add and remove event listeners via the mount and dismount syntax',
+    'The next few are some that we wrote before other fancy implementations of Hooks were released, yet still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown. We use this extensively throughout our view/edit layouts in our UI, to give you a WYSIWYG workflow. -- As youll see in these next two examples, useEffect is a convienet way to add and remove event listeners via the mount and dismount syntax',
   useHover:
     'The last hook id like to share was also homegrown, but certainly isnt the only or last implementation, the usehover. This hook keeps track of your mouse position within a node, and tests whether the node it enters includes that ref. We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children. This is typically hard to achieve in CSS due to not having access to a parent selector. That is how you take control of your UI and streamline your forms.'
 };
@@ -116,13 +116,15 @@ const Presentation = () => (
       >
         <SignalHeader caps>Our Challenge</SignalHeader>
         <Appear>
-          <SignalHeaderWhite>2,409 Organisations</SignalHeaderWhite>
-        </Appear>
-        <Appear>
           <SignalHeaderWhite>6,807 Users</SignalHeaderWhite>
         </Appear>
         <Appear>
-          <SignalHeaderWhite>54,405 Reports </SignalHeaderWhite>
+          <SignalHeaderWhite>54,405 Reports</SignalHeaderWhite>
+        </Appear>
+        <Appear>
+          <SignalHeaderWhite>
+            Sending millions of emails a month.
+          </SignalHeaderWhite>
         </Appear>
       </Slide>
 
@@ -179,7 +181,7 @@ const Presentation = () => (
           <CodePane
             source={useDebounce}
             lang="js"
-            textSize={24}
+            textSize={20}
             theme="external"
           />
         </List>
@@ -203,7 +205,7 @@ const Presentation = () => (
           <CodePane
             source={useUpdateEffect}
             lang="js"
-            textSize={24}
+            textSize={20}
             theme="external"
           />
         </List>
@@ -228,29 +230,7 @@ const Presentation = () => (
         </List>
       </Slide>
 
-      {/* UI-HOOKS HOVER */}
-      <Slide
-        progressColor="#eb5463"
-        align="flex-start"
-        notes={slideNotes.useFormBlur}
-      >
-        <SignalText>UI Hooks</SignalText>
-        <List textColor="#eb5463" textFont="Helvetica">
-          <SignalListItem>useHover</SignalListItem>
-          <CodePane
-            source={useHover}
-            lang="js"
-            textSize={19}
-            theme="external"
-          />
-        </List>
-      </Slide>
-
-      <Slide
-        progressColor="#eb5463"
-        align="flex-start"
-        notes={slideNotes.useFormBlur}
-      >
+      <Slide progressColor="#eb5463" align="flex-start">
         <SignalHeader>Why</SignalHeader>
         <Appear>
           <Image src={images.useHover1} height={100} width={900} />
@@ -269,26 +249,23 @@ const Presentation = () => (
         </Appear>
       </Slide>
 
-      {/* CODE SLIDE - REACT ROUTER */}
-      {/* <CodeSlide
+      {/* UI-HOOKS HOVER */}
+      <Slide
         progressColor="#eb5463"
-        transition={[]}
-        lang="js"
-        code={useHover}
-        ranges={[
-          { loc: [0, 100], title: 'useHover' },
-          { loc: [1, 3], note: 'Sets and initial value and creates a ref' },
-          { loc: [9, 13], note: 'If in a node, add a listener to that node' },
-          {
-            loc: [13, 17],
-            note: 'Remove the event listeners via the unmount return'
-          },
-          {
-            loc: [20, 21],
-            note: 'return the state of our ref and value'
-          }
-        ]}
-      /> */}
+        align="flex-start"
+        notes={slideNotes.useHover}
+      >
+        <SignalText>UI Hooks</SignalText>
+        <List textColor="#eb5463" textFont="Helvetica">
+          <SignalListItem>useHover</SignalListItem>
+          <CodePane
+            source={useHover}
+            lang="js"
+            textSize={20}
+            theme="external"
+          />
+        </List>
+      </Slide>
 
       <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
         <SignalText>UI Hooks</SignalText>
