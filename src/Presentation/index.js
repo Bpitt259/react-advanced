@@ -94,7 +94,9 @@ const slideNotes = {
   useFormBlur:
     'The next few are some that we wrote before other fancy implementations of Hooks were released, yet still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown. We use this extensively throughout our view/edit layouts in our UI, to give you a WYSIWYG workflow. -- As youll see in these next two examples, useEffect is a convienet way to add and remove event listeners via the mount and dismount syntax',
   useHover:
-    'The last hook id like to share was also homegrown, but certainly isnt the only or last implementation, the usehover. This hook keeps track of your mouse position within a node, and tests whether the node it enters includes that ref. We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children. This is typically hard to achieve in CSS due to not having access to a parent selector. That is how you take control of your UI and streamline your forms.'
+    'The last hook id like to share was also homegrown, but certainly isnt the only or last implementation, the usehover. This hook keeps track of your mouse position within a node, and tests whether the node it enters includes that ref. We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children. This is typically hard to achieve in CSS due to not having access to a parent selector.',
+  end:
+    'These are a few hooks in our tackle box, and how they can help you create performant forms, and take back control of your UI. -- All thats left is your imagination.'
 };
 
 const Presentation = () => (
