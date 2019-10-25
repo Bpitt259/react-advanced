@@ -32,7 +32,8 @@ const images = {
   useHover1: require('../assets/images/usehover-why.png'),
   useHover2: require('../assets/images/usehover-why2.png'),
   jquery: require('../assets/images/jquery.png'),
-  jquery2: require('../assets/images/jquery2.png')
+  jquery2: require('../assets/images/jquery2.png'),
+  imagination: require('../assets/images/imagination.gif')
 };
 preloader(images);
 Prism.highlightAll();
@@ -179,20 +180,14 @@ const Presentation = () => (
         <SignalText>React-Use</SignalText>
         <List textColor="#eb5463" textFont="Helvetica">
           <SignalListItem margin={10}>useDebounce</SignalListItem>
-
           <CodePane
             source={useDebounce}
             lang="js"
-            textSize={20}
+            textSize={25}
             theme="external"
           />
         </List>
         <Cite>Vadim Dalecky [streamich]</Cite>
-      </Slide>
-
-      <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
-        <SignalText>useDebounce for efficient API calls</SignalText>
-        <LivePreview />
       </Slide>
 
       {/* FORM CONTROLS - USE UPDATE  */}
@@ -207,7 +202,7 @@ const Presentation = () => (
           <CodePane
             source={useUpdateEffect}
             lang="js"
-            textSize={20}
+            textSize={25}
             theme="external"
           />
         </List>
@@ -269,17 +264,9 @@ const Presentation = () => (
         </List>
       </Slide>
 
-      <Slide progressColor="#eb5463" align="flex-start" textSize={10}>
-        <SignalText>UI Hooks</SignalText>
-        <List textColor="#eb5463" textFont="Helvetica">
-          <SignalListItem>useHover</SignalListItem>
-        </List>
-        <HoverPreview />
-      </Slide>
-
       {/* End */}
-      <Slide progressColor="#eb5463" textSize={10}>
-        <Cite>fin</Cite>
+      <Slide progressColor="#eb5463" textSize={10} notes={slideNotes.end}>
+        <Image src={images.imagination} height='100%' width='100%' />
       </Slide>
     </SlideSet>
   </Deck>
