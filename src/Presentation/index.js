@@ -81,21 +81,23 @@ const SignalListWhite = styled(ListItem).attrs(props => ({
 
 const slideNotes = {
   opening:
-    'Im Bryan, a Software Engineer at Signal. We focus on giving PR and Comms professionals relavent, real time information with the help of AI technology, but we also do a lot of cool stuff with our data.',
+    'Im Bryan, a Software Engineer at Signal. -- We focus on giving PR and Comms professionals relavent, real time information with the help of AI technology, -- but we also do a lot of cool stuff with our data.',
   challenge:
-    'Our clients need access to billions of data points, and they need to be able to harness that data in a meaningful way. Whether through custom reports, real-time and scheduled alerts or analytics dashboards, how we deliver that data to our clients matters.',
+    'Our clients need access to billions of data points, and they need to be able to harness that data in a meaningful way. -- Whether through custom reports, real-time and scheduled alerts -- or analytics dashboards, how we deliver that data to our clients matters.',
   needs:
-    'A large system that is also highly interactive and customizable does not come cheap in respect to performance, we aim to solve that using evolving yet consistant stretegies. More future proof and lower overhead components is where its at, which is where hooks step in.',
+    'A large -- highly interactive system that is also customizable does not come cheap in respect to performance, -- we aim to solve that using evolving yet consistant stretegies. --  More future proof and lower overhead components is where its at, -- which is where hooks step in.',
   how:
-    'We start with a full featured Hooks library that is still being contributed toward regularly by talented developers around the world, use-react, and we will end with a few of our own.',
+    'We start with a full featured Hooks library that is still being contributed to regularly by talented developers around the world, -- react-use, -- and we will end with a few of our own.',
   debounce:
-    'A hook that delays invoking a function until after a determined wait time enables us to offer saving on the fly in our forms, giving users a streamlined and reponsive experience, while keeping load off of our APIs.',
+    'A hook that delays invoking a function -- until after a determined wait time enables us to offer saving on the fly in our forms, giving users a streamlined and reponsive experience -- while keeping load off of our APIs.',
   useUpdate:
-    'Our next hook is one that ignores the first invocation of data (e.g. on compDidMount), to keep the information displayed in our customers field up to date, but not constatly pinging our servers. This provided a convienent way to bypass conditional test in our initial renders of forms.',
+    'Our next hook allows us to ignore the first invocation of data -- (for example componentDidMount). This allows us to keep the information displayed in our customers field up to date, but not constantly pinging our servers. -- This provided a convienent way to bypass conditional data loads in our initial render of forms.',
   useFormBlur:
     'The next few are some that we wrote before other fancy implementations of Hooks were released, yet still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown. We use this extensively throughout our view/edit layouts in our UI, to give you a WYSIWYG workflow. -- As youll see in these next two examples, useEffect is a convienet way to add and remove event listeners via the mount and dismount syntax',
+  why:
+    'The last hook id like to share was homegrown, -- but certainly isnt the only or last implementation, the usehover. -- What does this aim to solve ? -- keeping track of parent selectors via child nodes',
   useHover:
-    'The last hook id like to share was also homegrown, but certainly isnt the only or last implementation, the usehover. This hook keeps track of your mouse position within a node, and tests whether the node it enters includes that ref. We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children. This is typically hard to achieve in CSS due to not having access to a parent selector.',
+    'This hook recevives a ref from an element, and changes the state of the returned value if you are located in the  context of that node. -- We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children. -- This is typically hard to achieve in CSS due to not having access to a parent selector.',
   end:
     'These are a few hooks in our tackle box, and how they can help you create performant forms, and take back control of your UI. -- All thats left is your imagination.'
 };
@@ -266,7 +268,7 @@ const Presentation = () => (
 
       {/* End */}
       <Slide progressColor="#eb5463" textSize={10} notes={slideNotes.end}>
-        <Image src={images.imagination} height='100%' width='100%' />
+        <Image src={images.imagination} height="100%" width="100%" />
       </Slide>
     </SlideSet>
   </Deck>
