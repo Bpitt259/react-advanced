@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { SignalButton } from './Index';
+import { Text } from './Index';
 
 const images = [
   { id: 1, src: `${require('../assets/images/game/1.jpg')}` },
@@ -25,8 +25,7 @@ const ImageGrid = styled.div`
   align-self: center;
   display: grid;
 
-  grid-template-rows: repeat(3, 1fr);
-  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 1fr);
 `;
 
 const ImageFlex = styled.div`
@@ -39,33 +38,18 @@ const ImageEl = styled.img`
   justify-self: stretch;
 `;
 
-/* READ FIRST READ FIRST READ FIRSTREAD FIRSTREAD FIRSTREAD FIRSTREAD FIRSTREAD FIRST */
-// This challenege is more a trick. Remove (or replace) elements in the Javascript & CSS to unscramble our friend Joe.
-
-function shuffleImage(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
 export default function(props) {
-  shuffleImage(images);
-
   const renderImage = () =>
     images.map(i => <ImageEl key={i.id} src={i.src} alt="piece" />);
 
   return (
     <ImageGameWrapper>
-      <div style={{ width: '300px', alignSelf: 'center' }}>
-        <SignalButton
-          variant="contained"
-          color="primary"
-          onClick={() => props.history.push('/image-game-solution')}
-        >
-          Show Solution
-        </SignalButton>
-      </div>
+      <Text>Removed Array: shuffleImage(images);</Text>
+      <Text>
+        Adjusted the Grid element.
+        {`change'row' to 'column' -> grid-template-columns: repeat(3, 1fr); 
+        remove -> grid-auto-flow;`}
+      </Text>
       <ImageGrid>{renderImage()}</ImageGrid>
     </ImageGameWrapper>
   );

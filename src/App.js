@@ -11,6 +11,7 @@ import Game from './Game';
 import Presentation from './Presentation';
 import Features from './Features';
 import ImageGame from './Game/ImageGame';
+import ImageGameSolution from './Game/ImageGameSolution';
 
 const GlobalStyle = createGlobalStyle`
   p {
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/presentation" component={Presentation} />
             <Route path="/features" component={Features} />
             <Route path="/image-game" component={ImageGame} />
+            <Route path="/image-game-solution" component={ImageGameSolution} />
             <Route path="*">No stuff</Route>
           </Switch>
         </Fragment>
