@@ -95,7 +95,7 @@ const slideNotes = {
   useFormBlur:
     'The next few are some that we wrote before other fancy implementations of Hooks were released, yet still hold up today. The form blur allows us to explicitly omit or include selectors on a page to keep keep focus on an input group, or dropdown. We use this extensively throughout our view/edit layouts in our UI, to give you a WYSIWYG workflow. -- As youll see in these next two examples, useEffect is a convienet way to add and remove event listeners via the mount and dismount syntax',
   why:
-    'The last hook id like to share was homegrown, -- but certainly isnt the only or last implementation, the usehover. -- What does this aim to solve ? -- keeping track of parent selectors via child nodes',
+    'The last hook id like to share was homegrown, -- but certainly isnt the only or last implementation, the usehover. -- What does this aim to solve ? keeping track of parent selectors via child nodes',
   useHover:
     'This hook recevives a ref from an element, and changes the state of the returned value if you are located in the  context of that node. -- We found this to be extremely helpful in setting conditional CSS on a parent via interaction with one of its children. -- This is typically hard to achieve in CSS due to not having access to a parent selector.',
   end:
@@ -268,7 +268,9 @@ const Presentation = () => (
 
       {/* End */}
       <Slide progressColor="#eb5463" textSize={10} notes={slideNotes.end}>
-        <Image src={images.imagination} height="100%" width="100%" />
+        <Appear>
+          <Image src={images.imagination} height="100%" width="100%" />
+        </Appear>
       </Slide>
     </SlideSet>
   </Deck>
