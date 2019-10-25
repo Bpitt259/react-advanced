@@ -229,7 +229,7 @@ const Presentation = () => (
         </List>
       </Slide>
 
-      <Slide progressColor="#eb5463" align="flex-start">
+      <Slide progressColor="#eb5463" align="flex-start" notes={slideNotes.why}>
         <SignalHeader>Why</SignalHeader>
         <Appear>
           <Image src={images.useHover1} height={100} width={900} />
